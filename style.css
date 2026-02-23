@@ -9,43 +9,64 @@ body {
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, #1f2937, #0f172a);
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 12px;
+  font-size: 3.2rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 25px;
-  opacity: 0.9;
+  margin-bottom: 30px;
+  opacity: 0.85;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero button {
   font-size: 1rem;
-  padding: 12px 24px;
-  color: white;
-  background: #2563eb;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* Divider */
+.divider {
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0;
 }
 
 /* MAIN CONTAINER */
 .container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 820px;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
 }
 
 .container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -56,14 +77,23 @@ select,
 textarea {
   width: 100%;
   padding: 14px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 textarea {
-  min-height: 130px;
+  min-height: 150px;
 }
 
 /* BUTTON */
@@ -71,33 +101,41 @@ button#generateBtn {
   width: 100%;
   background: #2563eb;
   color: white;
-  padding: 14px;
+  padding: 15px;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.25s ease;
+  border: none;
 }
 
 button#generateBtn:hover {
   background: #1e40af;
 }
 
+button#generateBtn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
 /* OUTPUT */
 #output {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 10px;
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 12px;
   border: 1px solid #e5e7eb;
   margin-top: 30px;
   white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: 14px;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 30px;
   font-size: 0.9rem;
   color: #6b7280;
   border-top: 1px solid #e5e7eb;
-  margin-top: 50px;
+  margin-top: 60px;
 }
