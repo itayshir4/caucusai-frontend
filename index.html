@@ -2,25 +2,34 @@
 <html>
 <head>
   <title>CaucusAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Modern Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>CaucusAI</h1>
+  <div class="container">
+    <h1>CaucusAI</h1>
 
-  <input id="country" placeholder="Country">
-  <input id="committee" placeholder="Committee">
-  <input id="topic" placeholder="Topic">
+    <input id="country" placeholder="Country">
+    <input id="committee" placeholder="Committee">
+    <input id="topic" placeholder="Topic">
 
-  <select id="mode">
-    <option value="Leadership">Bloc Leadership Mode</option>
-    <option value="Stress Test">Clause Stress Test Mode</option>
-  </select>
+    <select id="mode">
+      <option value="Leadership">Bloc Leadership Mode</option>
+      <option value="Stress Test">Clause Stress Test Mode</option>
+    </select>
 
-  <button onclick="generatePlan()">Generate</button>
+    <button onclick="generatePlan()">Generate Strategy</button>
 
-  <div id="output"></div>
+    <div id="output"></div>
+  </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
