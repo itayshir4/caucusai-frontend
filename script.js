@@ -7,7 +7,7 @@ async function generatePlan() {
   const mode = document.getElementById("mode").value;
 
   try {
-    const response = await fetch("http://localhost:3000/generate", {
+    const response = await fetch("https://caucusai-backend.onrender.com/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ country, committee, topic, mode })
