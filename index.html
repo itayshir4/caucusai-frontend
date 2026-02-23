@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CaucusAI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CaucusAI — AI for Model UN</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <div class="container">
+<body>
+  <!-- HERO -->
+  <header class="hero">
     <h1>CaucusAI</h1>
+    <p>AI-powered strategy and preparation for Model United Nations delegates.</p>
+    <button onclick="document.getElementById('mainApp').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  </header>
+
+  <!-- MAIN APP -->
+  <main id="mainApp" class="container">
+
+    <h2>Choose Your Strategy Mode</h2>
 
     <input id="country" placeholder="Country">
     <input id="committee" placeholder="Committee">
@@ -20,21 +35,20 @@
       <option value="Opposition Simulation">Opposition Simulation Mode</option>
     </select>
 
-    <!-- Hidden by default -->
     <div id="resolutionContainer" style="display:none;">
-      <textarea 
-        id="resolutionText" 
-        placeholder="Paste resolution or idea here..."
-      ></textarea>
+      <textarea id="resolutionText" placeholder="Paste resolution or idea here..."></textarea>
     </div>
 
     <button id="generateBtn" onclick="generatePlan()">Generate Strategy</button>
 
     <div id="output"></div>
-  </div>
+  </main>
 
-  <!-- 🔥 defer added here -->
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 CaucusAI — Built for Model UN leaders</p>
+  </footer>
+
   <script src="script.js" defer></script>
-
 </body>
 </html>
