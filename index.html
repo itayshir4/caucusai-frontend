@@ -11,46 +11,94 @@
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">CaucusAI</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#mainApp">Generate</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <header class="hero">
-    <h1>CaucusAI</h1>
-    <p>Strategic intelligence for Model United Nations delegates.</p>
+    <h1>Strategic Intelligence for Model UN</h1>
+    <p>Dominate committees. Build stronger blocs. Anticipate opposition.</p>
     <button onclick="document.getElementById('mainApp').scrollIntoView({behavior:'smooth'})">
-      Get Started
+      Start Strategizing
     </button>
   </header>
 
-  <hr class="divider">
-
-  <!-- MAIN APP -->
-  <main id="mainApp" class="container">
-
-    <h2>Choose Your Strategy Mode</h2>
-
-    <input id="country" placeholder="Country">
-    <input id="committee" placeholder="Committee">
-    <input id="topic" placeholder="Topic">
-
-    <select id="mode">
-      <option value="Leadership">Bloc Leadership Mode</option>
-      <option value="Stress Test">Clause Stress Test Mode</option>
-      <option value="Resolution Audit">Resolution Audit Mode</option>
-      <option value="Opposition Simulation">Opposition Simulation Mode</option>
-    </select>
-
-    <div id="resolutionContainer" style="display:none;">
-      <textarea id="resolutionText" placeholder="Paste resolution or idea here..."></textarea>
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <h2>Powerful Strategy Modes</h2>
+    <div class="features-grid">
+      <div class="card">
+        <h3>Bloc Leadership</h3>
+        <p>Design vote math, secure alliances, and control committee dynamics.</p>
+      </div>
+      <div class="card">
+        <h3>Resolution Audit</h3>
+        <p>Analyze clause weaknesses, loopholes, and feasibility risks.</p>
+      </div>
+      <div class="card">
+        <h3>Opposition Simulation</h3>
+        <p>Prepare for hostile blocs and procedural sabotage.</p>
+      </div>
     </div>
+  </section>
 
-    <button id="generateBtn" onclick="generatePlan()">Generate Strategy</button>
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section light">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <p>Select your country, committee, and topic.</p>
+      </div>
+      <div class="step">
+        <span>2</span>
+        <p>Choose a strategic mode.</p>
+      </div>
+      <div class="step">
+        <span>3</span>
+        <p>Generate and refine your political strategy.</p>
+      </div>
+    </div>
+  </section>
 
-    <div id="output"></div>
+  <!-- MAIN TOOL -->
+  <section id="mainApp" class="tool-section">
+    <div class="container">
 
-  </main>
+      <h2>Generate Your Strategy</h2>
+
+      <input id="country" placeholder="Country">
+      <input id="committee" placeholder="Committee">
+      <input id="topic" placeholder="Topic">
+
+      <select id="mode">
+        <option value="Leadership">Bloc Leadership Mode</option>
+        <option value="Stress Test">Clause Stress Test Mode</option>
+        <option value="Resolution Audit">Resolution Audit Mode</option>
+        <option value="Opposition Simulation">Opposition Simulation Mode</option>
+      </select>
+
+      <div id="resolutionContainer" style="display:none;">
+        <textarea id="resolutionText" placeholder="Paste resolution or idea here..."></textarea>
+      </div>
+
+      <button id="generateBtn" onclick="generatePlan()">Generate Strategy</button>
+
+      <div id="output"></div>
+
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 CaucusAI — Built for Model UN leaders</p>
+    <p>&copy; 2026 CaucusAI — Built for Model UN Leaders</p>
   </footer>
 
   <script src="script.js" defer></script>
