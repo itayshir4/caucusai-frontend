@@ -1,7 +1,7 @@
+// Mode toggle logic
 const modeSelect = document.getElementById("mode");
 const resolutionContainer = document.getElementById("resolutionContainer");
 
-// Show/hide resolution textarea based on mode
 modeSelect.addEventListener("change", () => {
   const mode = modeSelect.value;
 
@@ -16,6 +16,8 @@ modeSelect.addEventListener("change", () => {
   }
 });
 
+
+// Main generation function
 async function generatePlan() {
   const country = document.getElementById("country").value;
   const committee = document.getElementById("committee").value;
