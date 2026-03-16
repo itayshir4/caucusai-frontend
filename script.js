@@ -52,7 +52,8 @@ modeSelect.addEventListener("change", () => {
     mode === "Resolution Audit" ||
     mode === "Opposition Simulation" ||
     mode === "Position Paper Grading" ||
-    mode === "Resolution Writer"
+    mode === "Resolution Writer" ||
+    mode === "Opening Speech Maker"
   ) {
     resolutionContainer.style.display = "block";
     resolutionContainer.style.animation = "fadeIn 0.3s ease-in";
@@ -62,6 +63,8 @@ modeSelect.addEventListener("change", () => {
       resolutionTextarea.placeholder = "Paste your position paper here for AI grading and feedback...";
     } else if (mode === "Resolution Writer") {
       resolutionTextarea.placeholder = "Describe your resolution idea, key points, and goals (e.g., 'Create a global fund for climate adaptation with specific funding mechanisms and oversight committee...')";
+    } else if (mode === "Opening Speech Maker") {
+      resolutionTextarea.placeholder = "Describe your country's position, key arguments, and speech goals (e.g., 'As Brazil, we strongly support climate action but need developed nations to provide funding and technology transfer...')";
     } else {
       resolutionTextarea.placeholder = "Paste resolution or idea here...";
     }
