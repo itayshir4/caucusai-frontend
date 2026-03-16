@@ -44,6 +44,42 @@ const modeSelect = document.getElementById("mode");
 const resolutionContainer = document.getElementById("resolutionContainer");
 const resolutionTextarea = document.getElementById("resolutionText");
 
+// Simple persistence keys
+const STORAGE_KEYS = {
+  country: "caucusai_country",
+  committee: "caucusai_committee",
+  topic: "caucusai_topic",
+  mode: "caucusai_mode",
+  resolutionText: "caucusai_resolutionText"
+};
+
+// Restore last session values
+document.addEventListener("DOMContentLoaded", () => {
+  const countryInput = document.getElementById("country");
+  const committeeInput = document.getElementById("committee");
+  const topicInput = document.getElementById("topic");
+
+  const savedCountry = localStorage.getItem(STORAGE_KEYS.country);
+  const savedCommittee = localStorage.getItem(STORAGE_KEYS.committee);
+  const savedTopic = localStorage.getItem(STORAGE_KEYS.topic);
+  const savedMode = localStorage.getItem(STORAGE_KEYS.mode);
+  const savedResolutionText = localStorage.getItem(STORAGE_KEYS.resolutionText);
+
+  if (savedCountry) countryInput.value = savedCountry;
+  if (savedCommittee) committeeInput.value = savedCommittee;
+  if (savedTopic) topicInput.value = savedTopic;
+
+  if (savedMode) {
+    modeSelect.value = savedMode;
+    // Trigger change handler so resolution container / placeholder are correct
+    modeSelect.dispatchEvent(new Event("change"));
+  }
+
+  if (savedResolutionText) {
+    resolutionTextarea.value = savedResolutionText;
+  }
+});
+
 modeSelect.addEventListener("change", () => {
   const mode = modeSelect.value;
 
@@ -76,11 +112,16 @@ modeSelect.addEventListener("change", () => {
 
 // Main generation function
 async function generatePlan() {
-  const country = document.getElementById("country").value.trim();
-  const committee = document.getElementById("committee").value.trim();
-  const topic = document.getElementById("topic").value.trim();
+  const countryInput = document.getElementById("country");
+  const committeeInput = document.getElementById("committee");
+  const topicInput = document.getElementById("topic");
+  const resolutionTextArea = document.getElementById("resolutionText");
+
+  const country = countryInput.value.trim();
+  const committee = committeeInput.value.trim();
+  const topic = topicInput.value.trim();
   const mode = document.getElementById("mode").value;
-  const resolutionText = document.getElementById("resolutionText").value.trim();
+  const resolutionText = resolutionTextArea.value.trim();
 
   // Basic validation
   if (!country || !committee || !topic) {
@@ -91,6 +132,17 @@ async function generatePlan() {
   if ((mode === "Stress Test" || mode === "Resolution Audit" || mode === "Opposition Simulation") && !resolutionText) {
     alert("Please provide resolution text for this mode.");
     return;
+  }
+
+  // Persist latest values so they are restored on next visit
+  try {
+    localStorage.setItem(STORAGE_KEYS.country, country);
+    localStorage.setItem(STORAGE_KEYS.committee, committee);
+    localStorage.setItem(STORAGE_KEYS.topic, topic);
+    localStorage.setItem(STORAGE_KEYS.mode, mode);
+    localStorage.setItem(STORAGE_KEYS.resolutionText, resolutionText);
+  } catch (e) {
+    console.warn("Unable to access localStorage for persistence.", e);
   }
 
   const btn = document.getElementById("generateBtn");
