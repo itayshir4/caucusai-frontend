@@ -51,7 +51,8 @@ modeSelect.addEventListener("change", () => {
     mode === "Stress Test" ||
     mode === "Resolution Audit" ||
     mode === "Opposition Simulation" ||
-    mode === "Position Paper Grading"
+    mode === "Position Paper Grading" ||
+    mode === "Resolution Writer"
   ) {
     resolutionContainer.style.display = "block";
     resolutionContainer.style.animation = "fadeIn 0.3s ease-in";
@@ -59,6 +60,8 @@ modeSelect.addEventListener("change", () => {
     // Update placeholder based on mode
     if (mode === "Position Paper Grading") {
       resolutionTextarea.placeholder = "Paste your position paper here for AI grading and feedback...";
+    } else if (mode === "Resolution Writer") {
+      resolutionTextarea.placeholder = "Describe your resolution idea, key points, and goals (e.g., 'Create a global fund for climate adaptation with specific funding mechanisms and oversight committee...')";
     } else {
       resolutionTextarea.placeholder = "Paste resolution or idea here...";
     }
