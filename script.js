@@ -129,7 +129,16 @@ async function generatePlan() {
     return;
   }
 
-  if ((mode === "Stress Test" || mode === "Resolution Audit" || mode === "Opposition Simulation") && !resolutionText) {
+  const modesRequiringText = new Set([
+    "Stress Test",
+    "Resolution Audit",
+    "Opposition Simulation",
+    "Position Paper Grading",
+    "Resolution Writer",
+    "Opening Speech Maker"
+  ]);
+
+  if (modesRequiringText.has(mode) && !resolutionText) {
     alert("Please provide resolution text for this mode.");
     return;
   }
@@ -173,9 +182,17 @@ async function generatePlan() {
       }
     );
 
-    const data = await response.json();
+    const data = await response.json().catch(() => null);
 
-    if (data.output) {
+    if (!response.ok) {
+      const message =
+        (data && (data.error || data.message)) ||
+        `Request failed (${response.status})`;
+      output.innerHTML = `Error: ${message}`;
+      return;
+    }
+
+    if (data && data.output) {
       output.innerHTML = data.output.replace(/\n/g, "<br>");
       output.style.animation = "fadeIn 0.5s ease-in";
     } else {
