@@ -42,6 +42,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Mode toggle logic
 const modeSelect = document.getElementById("mode");
 const resolutionContainer = document.getElementById("resolutionContainer");
+const resolutionTextarea = document.getElementById("resolutionText");
 
 modeSelect.addEventListener("change", () => {
   const mode = modeSelect.value;
@@ -49,10 +50,18 @@ modeSelect.addEventListener("change", () => {
   if (
     mode === "Stress Test" ||
     mode === "Resolution Audit" ||
-    mode === "Opposition Simulation"
+    mode === "Opposition Simulation" ||
+    mode === "Position Paper Grading"
   ) {
     resolutionContainer.style.display = "block";
     resolutionContainer.style.animation = "fadeIn 0.3s ease-in";
+    
+    // Update placeholder based on mode
+    if (mode === "Position Paper Grading") {
+      resolutionTextarea.placeholder = "Paste your position paper here for AI grading and feedback...";
+    } else {
+      resolutionTextarea.placeholder = "Paste resolution or idea here...";
+    }
   } else {
     resolutionContainer.style.display = "none";
   }
